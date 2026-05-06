@@ -24,7 +24,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 **Step 1** — Go to [Splunk](https://www.splunk.com), create an account, and log in.
 
 <p align="center">
-  <img src="REPLACE_WITH_GITHUB_URL_FOR_Log_into_the_Splunk_account.png" alt="Splunk login page" width="700"><br>
+  <img src="https://github.com/user-attachments/assets/5e8446cb-1dd4-4523-af3c-55f951f1fa85" alt="Log into the Splunk account" alt="Splunk login page" width="700"><br>
   <em>Figure 1: Logging into the Splunk account</em>
 </p>
 
@@ -205,4 +205,5 @@ source="WinEventLog:Security" date_second=55 | timechart avg(RecordNumber)
 
 - [Splunk Official Site](https://www.splunk.com)
 - [Splunk Search Reference](https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/WhatsInThisManual)
-- [Splunk Search Tutorial](https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/WelcometotheSearchTutorial)<img width="1440" height="900" alt="Log into the Splunk account" src="https://github.com/user-attachments/assets/0e801c2b-dec6-4292-96fc-7dd6377a752b" />
+- [Splunk Search Tutorial](https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/WelcometotheSearchTutorial)<img width="1440" 
+
