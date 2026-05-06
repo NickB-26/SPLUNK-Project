@@ -1,25 +1,25 @@
 # 🛡️ Splunk SIEM Project — SOC Analyst Fundamentals
 
-A hands-on project demonstrating the fundamentals of working with Splunk Enterprise as a Security Information and Event Management (SIEM) platform — covering installation, data ingestion, dashboard creation, and writing Search Processing Language (SPL) queries to analyse Windows Event Logs.
+A hands-on project demonstrating the fundamentals of using Splunk as a SIEM (Security Information and Event Management) platform — covering installation, data ingestion, dashboard setup, and writing Search Processing Language (SPL) queries to analyse Windows Event Logs.
 
 ---
 
 ## 🎯 Project Overview
 
-This project showcases practical SIEM skills by deploying Splunk Enterprise locally, ingesting Windows Event Log data, and building dashboards and queries that an entry-level SOC analyst would use day-to-day. The goal is to demonstrate analytical thinking, tool fluency, and the ability to translate raw log data into actionable security insight.
+This project showcases practical SIEM skills by deploying Splunk Enterprise locally, ingesting Windows Event Log data, and building dashboards and queries that an entry-level SOC analyst would use daily. The goals are: to demonstrate basic understanding of Splunk and the ability to translate raw log data into actionable security insight.
 
 ---
 
 ## 🖥️ Environment
 
-- **Operating System:** Windows
-- **SIEM Platform:** Splunk Enterprise
-- **Data Source:** Local directory containing Windows Event Logs
+- **Operating System:** Windows 11
+- **SIEM Platform:** Splunk Enterprise version
+- **Data Source:** Windows Event Logs
 - **Events Ingested:** 28,617 WinEventLog events
 
 ---
 
-## 📥 Splunk Installation
+## 📥 Phase 1: Splunk Installation
 
 **Step 1** — Go to [Splunk](https://www.splunk.com) and create an account.
 
@@ -29,15 +29,13 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 
 ---
 
-## 📊 Data Ingestion
+## 📊 Phase 2: Data Ingestion
 
 **Step 1** — Once the installation process is finished, data sources can be added to provide data we can analyse. Click **Settings** in the top right corner, then **Add Data**.
 
-**Step 2** — Select a data source from the various options available (Local Event Logs, Remote Event Logs, Files and Directories, etc.). I chose a directory from my local machine.
+**Step 2** — Select a data source from the various options available (Local Event Logs, Remote Event Logs, Files and Directories, etc.). I chose a directory from my local machine and worked through the remaining steps to finish adding the data source.
 
-**Step 3** — Work through the remaining steps to finish adding the data source.
-
-Once the data has been loaded into Splunk, searching and analysis can begin. Splunk identified **28,617 WinEventLog events** from the provided source (visible in the top left corner of the search interface). A wide range of filter options can be used to display only the data relevant to the current investigation.
+**Step 3** — Splunk identified 28,617 WinEventLog events from the provided source (visible in the top left corner of the search interface). A wide range of filter options can be used to display only the data relevant to the current investigation.
 
 ---
 
@@ -88,27 +86,16 @@ Multiple commands can be **chained using the pipe symbol (`|`)**. This means com
 - **Context matters more than alerts.** A single failed login is meaningless on its own; five failed logins followed by a success from the same source is a potential incident. Building queries that capture *patterns*, not just events, is the core skill.
 
 ### Challenges & how I overcame them
-- **The SPL syntax took time to click.** I initially tried to write SQL-style queries, which doesn't translate to Splunk. Switching my mental model to "pipeline of transformations" made everything easier.
+
 - **Choosing what to monitor was overwhelming.** With dozens of possible Event IDs, I focused on detections relevant to early-stage attacker behaviour and worked backwards from there.
 
 ### What I would do differently next time
 - **Set up alerts earlier in the process.** I built dashboards before configuring alerts — but in a real SOC, automated alerting is the foundation, and dashboards support investigation rather than replacing it.
 - **Document queries as I go.** Retracing my steps to write this README highlighted the value of keeping a running notebook of every SPL query alongside what it taught me.
-- **Test against known-bad data.** Splunk's *Boss of the SOC* dataset would provide realistic attack scenarios to practise against — that's my next project.
 
----
-
-## 🚀 What's Next
-
-- Complete a **Splunk Boss of the SOC (BOTS)** challenge for hands-on detection experience against realistic attack data.
-- Build SPL detections mapped to **MITRE ATT&CK** techniques (initial access, credential access, privilege escalation).
-- Configure **automated alerting** with tuned thresholds and document a basic incident response playbook.
-
----
 
 ## 📚 References
 
 - [Splunk Official Site](https://www.splunk.com)
 - [Splunk Search Reference](https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/WhatsInThisManual)
 - [Splunk Search Tutorial](https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/WelcometotheSearchTutorial)
-- [Boss of the SOC v3](https://github.com/splunk/botsv3)
