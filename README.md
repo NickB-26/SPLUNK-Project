@@ -42,7 +42,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 **Step 3** — Install Splunk and complete the first-time sign-in to access the Splunk Enterprise interface.
 
 <p align="center">
-  <img src="REPLACE_WITH_GITHUB_URL_FOR_Screenshot_2026-04-13_at_00_10_43.png" alt="Splunk Enterprise first-time sign-in screen" width="700"><br>
+  <img src="https://github.com/user-attachments/assets/4cb50572-314e-4107-bd86-fd2ae917d60d" alt="Splunk Enterprise first-time sign-in screen" width="700"><br>
   <em>Figure 3: Splunk Enterprise first-time sign-in</em>
 </p>
 
@@ -53,7 +53,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 **Step 1** — Once the installation is complete, data sources can be added so we have data to analyse. Click **Settings** in the top right corner, then **Add Data**.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a545fdd9-cab1-4840-be9c-541cbec481a6" alt="Splunk Settings menu showing Add Data option" width="700"><br>
+  <img src="https://github.com/user-attachments/assets/44cc48d9-23e0-467d-8a3d-d3f6d8a77d42" alt="Splunk Settings menu showing Add Data option" width="700"><br>
   <em>Figure 4: Navigating to Settings → Add Data</em>
 </p>
 
@@ -62,7 +62,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 **Step 2** — Splunk presents multiple onboarding categories — Cloud computing, Networking, Operating System, and Security — alongside several manual data input methods.
 
 <p align="center">
-  <img src="REPLACE_WITH_GITHUB_URL_FOR_Add_data.png" alt="Splunk Add Data page showing onboarding categories" width="700"><br>
+  <img src="https://github.com/user-attachments/assets/016fc670-659f-49ed-9efb-3cc931c2bc10" alt="Splunk Add Data page showing onboarding categories" width="700"><br>
   <em>Figure 5: Selecting a data source category in the Splunk onboarding page</em>
 </p>
 
@@ -71,7 +71,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 **Step 3** — Select a data source from the various options available (Local Event Logs, Remote Event Logs, Files and Directories, etc.). I chose a directory from my local machine and worked through the remaining steps to finish adding the data source.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/5a6ba2b3-d3c3-453f-8671-67bcaaa2c1bd" alt="Selecting a data source in Splunk" width="700"><br>
+  <img src="https://github.com/user-attachments/assets/a545fdd9-cab1-4840-be9c-541cbec481a6" alt="Selecting a data source in Splunk" width="700"><br>
   <em>Figure 6: Selecting a local directory as the data source</em>
 </p>
 
@@ -80,7 +80,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 **Step 4** — Splunk identified **28,617 WinEventLog events** from the provided source (visible in the top left corner of the search interface). A wide range of filter options can be used to display only the data relevant to the current investigation.
 
 <p align="center">
-  <img src="REPLACE_WITH_GITHUB_URL_FOR_28617_events_were_found.png" alt="Splunk search interface showing 28,617 ingested WinEventLog events" width="700"><br>
+  <img src="https://github.com/user-attachments/assets/cad8b802-a2ff-44e8-82c8-2231b4230440" alt="Splunk search interface showing 28,617 ingested WinEventLog events" width="700"><br>
   <em>Figure 7: Splunk search interface displaying 28,617 ingested events</em>
 </p>
 
@@ -88,33 +88,30 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 
 ## 📈 Phase 3: Dashboard Setup
 
-Splunk offers two main dashboarding options:
 
-- **Classic Dashboards** — built using XML
-- **Dashboard Studio** — a modern, customisable framework using JSON
-
-A wide range of metrics can be visualised, categorised broadly into **infrastructure**, **application**, and **network health**. As an example, I set up a **CPU Usage** home dashboard to monitor the deployment in real time.
+**Step 1** — Selecting a Dashboard type. Splunk offers two main dashboarding options: Classic Dashboard (built using XML)
+and Dashboard Studio (a modern, customisable framework using JSON)
 
 <p align="center">
-  <img src="REPLACE_WITH_GITHUB_URL_FOR_Choose_a_home_dashboard.png" alt="Choose a home dashboard dialog with CPU Usage options" width="700"><br>
+  <img src="https://github.com/user-attachments/assets/02e889ba-c512-4964-884e-7c798e2d96df" alt="Choose a home dashboard dialog with CPU Usage options" width="700"><br>
   <em>Figure 8: Selecting CPU Usage: Deployment as the home dashboard</em>
 </p>
 
 <br>
 
-The dashboard displays multiple panels, including **Deployment-Wide Median CPU Usage** and **Median CPU Usage** over a 30-minute window, giving an immediate at-a-glance view of system health.
+**Step 2** — Selecting the metrics we're interested in. A wide range of metrics can be visualised, categorised broadly into **infrastructure**, **application**, and **network health**. As an example, I've selected **CPU Usage** home dashboard to monitor the deployment in real time. The dashboard displays multiple panels, including **Deployment-Wide Median CPU Usage** and **Median CPU Usage** over a 30-minute window, giving an immediate at-a-glance view of system health.
 
 <p align="center">
-  <img src="REPLACE_WITH_GITHUB_URL_FOR_Median_CPU_usage_for_the_last_30_minutes.png" alt="Splunk dashboard showing median CPU usage over 30 minutes" width="700"><br>
-  <em>Figure 9: Deployment-Wide Median CPU Usage panel (30-minute window)</em>
+  <img src="https://github.com/user-attachments/assets/5e1c7344-0a80-482f-8526-7e5b2d862f7e" alt="Splunk dashboard showing median CPU usage over 30 minutes" width="700"><br>
+  <em>Figure 9: Diplaying Median CPU Usage (30-minute window)</em>
 </p>
 
 <br>
 
-The dashboard also breaks CPU usage down by process class — separating index service, search, scripted input, and the splunkd server itself — which is useful for spotting which Splunk components are consuming the most resources.
+**Step 3** — Drilling down to find more details about the CPU usage. We can break CPU usage down by process class — separating index service, search, scripted input, and the splunkd server itself — which is useful for spotting which Splunk components are consuming the most resources.
 
 <p align="center">
-  <img src="REPLACE_WITH_GITHUB_URL_FOR_Median_CPU_usage_by_Process_class.png" alt="Median CPU Usage by Process Class panel" width="700"><br>
+  <img src="https://github.com/user-attachments/assets/5214a808-cc41-48bf-a3b6-b09e70d83230" alt="Median CPU Usage by Process Class panel" width="700"><br>
   <em>Figure 10: Median CPU Usage by Process Class — splunkd server, search, scripted input</em>
 </p>
 
