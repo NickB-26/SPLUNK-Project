@@ -190,7 +190,7 @@ source="WinEventLog:Security" date_second=55 | timechart avg(RecordNumber)
 - **One event means nothing. Patterns mean everything.** A single failed login is noise. Five failed logins followed by a success from the same account is something worth investigating. I kept reminding myself to look for sequences, not just individual events.
 
 ### Challenges & how I overcame them
-- **I didn't know where to start with so many Event IDs.** Rather than trying to cover everything, I picked one scenario — multiple failed logins followed by a success — and built queries around that. Working from a specific threat rather than general curiosity made it much easier to make progress.
+- **I didn't know where to start with so many Event IDs.** I wasted an hour thinking where to start. Eventually, rather than trying to cover everything, I picked one scenario — multiple failed logins followed by a success — and built queries around that. Working from a specific threat rather than general curiosity made it much easier to make progress.
 
 ### What I would do differently next time
 - **Set up alerts before building dashboards.** I got caught up making things look good before I had alerts configured. In a real SOC, alerts come first — dashboards support investigation, they don't replace it.
