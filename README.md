@@ -1,12 +1,12 @@
 # 🛡️ Splunk SIEM Project — SOC Analyst Fundamentals
 
-A hands-on project demonstrating the fundamentals of using Splunk as a SIEM (Security Information and Event Management) platform — covering installation, data ingestion, dashboard setup, and writing Search Processing Language (SPL) queries to analyse Windows Event Logs.
+A hands-on project covering Splunk Enterprise installation, data ingestion, dashboard setup, and writing SPL queries to analyse Windows Event Logs.
 
 ---
 
 ## 🎯 Project Overview
 
-This project showcases practical SIEM skills by deploying Splunk Enterprise locally, ingesting Windows Event Log data, and building dashboards and queries that an entry-level SOC analyst would use daily. The goals are: to demonstrate basic understanding of Splunk and the ability to translate raw log data into actionable security insight.
+I built this project to get hands-on experience with Splunk as a SIEM platform. The idea was simple: deploy Splunk locally, feed it real Windows Event Log data, and start writing queries that an entry-level SOC analyst would actually use. Less theory, more doing.
 
 ---
 
@@ -30,7 +30,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 
 <br>
 
-**Step 2** — Download the corresponding Splunk Enterprise software for your operating system. I installed Windows 11 on a virtual machine using VMware Fusion on my Mac.
+**Step 2** — Download the Splunk Enterprise installer for your operating system. I was running Windows 11 inside a VMware Fusion VM on my Mac.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c992ec67-5f96-46ad-a9e9-907e267e7070" alt="Splunk installer running on Windows 11 VM" width="700"><br>
@@ -50,7 +50,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 
 ## 📊 Phase 2: Data Ingestion
 
-**Step 1** — Once the installation is complete, data sources can be added so we have data to analyse. Click **Settings** in the top right corner, then **Add Data**.
+**Step 1** — Click **Settings** in the top right corner, then **Add Data** to start bringing in a data source.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/44cc48d9-23e0-467d-8a3d-d3f6d8a77d42" alt="Splunk Settings menu showing Add Data option" width="700"><br>
@@ -59,7 +59,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 
 <br>
 
-**Step 2** — Splunk presents multiple onboarding categories — Cloud computing, Networking, Operating System, and Security — alongside several manual data input methods.
+**Step 2** — Splunk gives you several onboarding categories to choose from — Cloud computing, Networking, Operating System, and Security — plus manual input options for files, directories, and event logs.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/016fc670-659f-49ed-9efb-3cc931c2bc10" alt="Splunk Add Data page showing onboarding categories" width="700"><br>
@@ -68,7 +68,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 
 <br>
 
-**Step 3** — Select a data source from the various options available (Local Event Logs, Remote Event Logs, Files and Directories, etc.). I chose a directory from my local machine and worked through the remaining steps to finish adding the data source.
+**Step 3** — I picked a local directory on my machine as the data source and worked through the remaining steps to finish the setup.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a545fdd9-cab1-4840-be9c-541cbec481a6" alt="Selecting a data source in Splunk" width="700"><br>
@@ -77,7 +77,7 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 
 <br>
 
-**Step 4** — Splunk identified **28,617 WinEventLog events** from the provided source (visible in the top left corner of the search interface). A wide range of filter options can be used to display only the data relevant to the current investigation.
+**Step 4** — Splunk picked up **28,617 WinEventLog events** from the source. From here you can start filtering down to whatever is relevant to the investigation.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cad8b802-a2ff-44e8-82c8-2231b4230440" alt="Splunk search interface showing 28,617 ingested WinEventLog events" width="700"><br>
@@ -88,27 +88,25 @@ This project showcases practical SIEM skills by deploying Splunk Enterprise loca
 
 ## 📈 Phase 3: Dashboard Setup
 
-
-**Step 1** — Selecting a Dashboard type. Splunk offers two main dashboarding options: Classic Dashboard (built using XML)
-and Dashboard Studio (a modern, customisable framework using JSON)
+**Step 1** — Splunk offers two dashboarding options: Classic Dashboard (XML-based) and Dashboard Studio (a more modern, customisable framework using JSON). I went with Dashboard Studio.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/02e889ba-c512-4964-884e-7c798e2d96df" alt="Choose a home dashboard dialog with CPU Usage options" width="700"><br>
-  <em>Figure 8: Selecting CPU Usage: Deployment as the home dashboard</em>
+  <em>Figure 8: Selecting CPU Usage deployment as the home dashboard</em>
 </p>
 
 <br>
 
-**Step 2** — Selecting the metrics we're interested in. A wide range of metrics can be visualised, categorised broadly into **infrastructure**, **application**, and **network health**. As an example, I've selected **CPU Usage** home dashboard to monitor the deployment in real time. The dashboard displays multiple panels, including **Deployment-Wide Median CPU Usage** and **Median CPU Usage** over a 30-minute window, giving an immediate at-a-glance view of system health.
+**Step 2** — There are a lot of metrics to choose from across infrastructure, application, and network health. I started with the **CPU Usage** home dashboard to get a feel for how dashboards work. It shows **Deployment-Wide Median CPU Usage** and **Median CPU Usage** over a 30-minute window — a quick way to see system health at a glance.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5e1c7344-0a80-482f-8526-7e5b2d862f7e" alt="Splunk dashboard showing median CPU usage over 30 minutes" width="700"><br>
-  <em>Figure 9: Diplaying Median CPU Usage (30-minute window)</em>
+  <em>Figure 9: Displaying Median CPU Usage (30-minute window)</em>
 </p>
 
 <br>
 
-**Step 3** — Drilling down to find more details about the CPU usage. We can break CPU usage down by process class — separating index service, search, scripted input, and the splunkd server itself — which is useful for spotting which Splunk components are consuming the most resources.
+**Step 3** — Drilling down further, you can break CPU usage down by process class — separating index service, search, scripted input, and the splunkd server — which makes it easy to spot which component is eating the most resources.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/5214a808-cc41-48bf-a3b6-b09e70d83230" alt="Median CPU Usage by Process Class panel" width="700"><br>
@@ -117,27 +115,25 @@ and Dashboard Studio (a modern, customisable framework using JSON)
 
 <br>
 
-Dashboards support multiple chart types, each suited to different analytical purposes:
+Dashboards support several chart types depending on what you're trying to show:
 - Column & bar charts — comparing values across categories
 - Line & area charts — showing changes or trends over time
 - Pie & donut charts — displaying proportional breakdowns of a whole
-Different fields can be selected from the left pane to tailor the view to specific analytical needs.
 
 ---
 
 ## 🔍 Phase 4: SPL — Search Processing Language
 
-The Splunk search bar accepts **Search Processing Language (SPL)** — Splunk's proprietary query language for filtering and analysing data. 
+The Splunk search bar runs **Search Processing Language (SPL)** — Splunk's query language for filtering and analysing data.
 
-**Step 1** — The search bar offers autocomplete suggestions as you type, surfacing matching source types and recent terms. 
-SPL accepts several input types:
+**Step 1** — The search bar autocompletes as you type, suggesting matching source types and recent terms. SPL accepts several input types:
 
 - **Search terms & keywords** — e.g. `error`, `failed`, `login`
 - **Field-value pairs** — e.g. `host=webserver`, `sourcetype=access_combined`
 - **Boolean operators** — `AND`, `OR`, `NOT`
 - **Wildcards** — e.g. `fail*` matches *failure*, *failed*, etc.
 - **Quoted phrases** — e.g. `"database error"` for exact matches
-- 
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6d4119bf-b7b6-4f29-8668-d2bed3cf9ad7" alt="Splunk search bar with SPL autocomplete suggestions" width="700"><br>
   <em>Figure 11: SPL autocomplete suggesting WinEventLog source types</em>
@@ -145,11 +141,11 @@ SPL accepts several input types:
 
 <br>
 
-**Step 2**  — Multiple commands can be **chained using the pipe symbol (`|`)**. This means commands following the pipe take the output from the previous command and process it further, allowing the analyst to fine-tune results by progressively filtering and transforming the data.
+**Step 2** — Commands can be **chained using the pipe symbol (`|`)**. Each command takes the output of the previous one and processes it further — so you can progressively filter and shape the data rather than trying to do everything in one go.
 
 ### Example query — events over time, broken down by account
 
-The query below filters for Windows Security events and uses `timechart` to plot event counts grouped by `Account_Name`, limited to the top 10:
+Filters for Windows Security events and uses `timechart` to plot event counts grouped by `Account_Name`, limited to the top 10:
 
 ```spl
 source="WinEventLog:Security" | timechart count by Account_Name limit=10
@@ -164,7 +160,7 @@ source="WinEventLog:Security" | timechart count by Account_Name limit=10
 
 ### Example query — single-value visualisation
 
-SPL also supports aggregation functions like `avg()` for single-value summaries — useful for KPIs or dashboard tiles:
+SPL also supports aggregation functions like `avg()` for single-value summaries — handy for KPI tiles on a dashboard:
 
 ```spl
 source="WinEventLog:Security" date_second=55 | timechart avg(RecordNumber)
@@ -177,27 +173,28 @@ source="WinEventLog:Security" date_second=55 | timechart avg(RecordNumber)
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/8b2a1876-32ce-49d0-91d7-50ee0015de00" alt="Timechart count by account name" width="700"><br>
-  <em>Figure 13: Visualisation of events generated by the various accounts</em>
+  <em>Figure 14: Visualisation of events generated by the various accounts</em>
 </p>
+
 ---
 
 ## 🎓 Lessons Learned
 
 ### Technical insights
-- **SPL is more powerful than expected.** What initially looked like a simple search bar is actually a full pipeline language. Understanding the `|` operator and how each command transforms the previous output was a turning point in writing effective queries.
-- **Data volume changes everything.** With over 28,000 Windows events ingested, I quickly realised that unfiltered searches return overwhelming noise. Effective analysis depends on knowing *what* to filter for — which means understanding the relevant Windows Event IDs before you even start typing.
-- **Dashboards are storytelling tools.** A well-designed dashboard isn't just a collection of charts — it should answer the specific questions an analyst would ask during triage.
+- **SPL is more powerful than it looks.** I expected a basic search box. What I got was a full pipeline language — once I understood how the `|` operator works and how each command reshapes the output, writing useful queries became much faster.
+- **28,000 events is a lot of noise.** Unfiltered searches were overwhelming. I quickly learned that effective analysis starts with knowing your Event IDs before you touch the search bar — otherwise you're just scrolling through data with no direction.
+- **Dashboards are for answering specific questions.** The most useful ones I built weren't the most visually impressive — they were the ones built around a question I actually wanted to answer.
 
 ### SOC analyst mindset
-- **Detection requires hypothesis-driven thinking.** Rather than asking "what does this data show?", I learned to ask "what would an attacker look like in this data?" — which led to far more meaningful searches.
-- **Context matters more than alerts.** A single failed login is meaningless on its own; five failed logins followed by a success from the same source is a potential incident. Building queries that capture *patterns*, not just events, is the core skill.
+- **I started asking "what would an attacker look like in this data?" instead of "what does this data show?"** That shift made my queries much more focused and actually useful.
+- **One event means nothing. Patterns mean everything.** A single failed login is noise. Five failed logins followed by a success from the same account is something worth investigating. I kept reminding myself to look for sequences, not just individual events.
 
 ### Challenges & how I overcame them
-- **Choosing what to monitor was overwhelming.** With dozens of possible Event IDs, I focused on detecting relevant IOCs (Indicators of compromise) like multiple failed login attempts in a short period of time and worked backwards from there.
+- **I didn't know where to start with so many Event IDs.** Rather than trying to cover everything, I picked one scenario — multiple failed logins followed by a success — and built queries around that. Working from a specific threat rather than general curiosity made it much easier to make progress.
 
 ### What I would do differently next time
-- **Set up alerts earlier in the process.** I built dashboards before configuring alerts — but in a real SOC, automated alerting is the foundation, and dashboards support investigation rather than replacing it.
-- **Document queries as I go.** Retracing my steps to write the content for this project highlighted the value of keeping a running notebook of every SPL query alongside what it taught me.
+- **Set up alerts before building dashboards.** I got caught up making things look good before I had alerts configured. In a real SOC, alerts come first — dashboards support investigation, they don't replace it.
+- **Keep a query notebook from the start.** Writing up this project took longer than it should have because I hadn't documented my SPL queries as I went. Next time I'll keep a running note of every query alongside what it showed me.
 
 ---
 
@@ -206,4 +203,3 @@ source="WinEventLog:Security" date_second=55 | timechart avg(RecordNumber)
 - [Splunk Official Site](https://www.splunk.com)
 - [Splunk Search Reference](https://docs.splunk.com/Documentation/Splunk/latest/SearchReference/WhatsInThisManual)
 - [Splunk Search Tutorial](https://docs.splunk.com/Documentation/Splunk/latest/SearchTutorial/WelcometotheSearchTutorial)
-
